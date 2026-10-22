@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "name": "Leitor de Voz",
+    "slug": "leitor-voz",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "backgroundColor": "#ffffff"
+    },
+    "android": {
+      "package": "com.seuapp.leitordevoz"
+    }
+  }
+}
