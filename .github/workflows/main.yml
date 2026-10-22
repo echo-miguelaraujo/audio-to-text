@@ -12,34 +12,30 @@ jobs:
       - name: 1. Checkout do codigo
         uses: actions/checkout@v4
 
-      - name: 2. Extrair o arquivo ZIP do projeto
-        # Este comando pega qualquer .zip no repositório e extrai antes de começar
-        run: unzip -o *.zip
-
-      - name: 3. Configurar Node.js
+      - name: 2. Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: 4. Configurar Java
+      - name: 3. Configurar Java
         uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
           java-version: '17'
 
-      - name: 5. Instalar dependencias do projeto
+      - name: 4. Instalar dependencias do projeto
         run: npm install
 
-      - name: 6. Gerar pasta nativa do Android (Prebuild)
+      - name: 5. Gerar pasta nativa do Android (Prebuild)
         run: npx expo prebuild --platform android --clean
 
-      - name: 7. Compilar APK (Release)
+      - name: 6. Compilar APK (Release)
         run: |
           cd android
           chmod +x gradlew
           ./gradlew assembleRelease
 
-      - name: 8. Disponibilizar APK para download
+      - name: 7. Disponibilizar APK para download
         uses: actions/upload-artifact@v4
         with:
           name: LeitorDeVoz-APK
